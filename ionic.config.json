@@ -1,0 +1,7 @@
+{
+  "name": "fatan-firebase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
