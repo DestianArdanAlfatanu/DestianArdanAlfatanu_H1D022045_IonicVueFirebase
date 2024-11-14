@@ -90,9 +90,7 @@ Di halaman profile page kita dapat melihat foto pofile, nama, dan akun yang digu
 
 Ini adalah script untuk menampilkan data akun
 ```script
-const userPhoto = computed(()
-=> authStore.user?.photoURL || 'https://ionicframework.com/docs/img/demos/avatar.svg' //Menampilkan foto profile sesuai dengan akun
-);
+const userPhoto = ref(user.value?.photoURL || 'https://ionicframework.com/docs/img/demos/avatar.svg');
 
 function handleImageError() {
     userPhoto.value = 'https://ionicframework.com/docs/img/demos/avatar.svg';
