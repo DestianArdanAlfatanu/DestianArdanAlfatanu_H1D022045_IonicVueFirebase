@@ -42,7 +42,7 @@ router.beforeEach(async (to, from, next) => {
 
 ![image](https://github.com/user-attachments/assets/06d1f412-ca7f-42f4-949b-29dba323bd39)
 
-Setelah berhasil login kita langsung diarahkan ke halaman Home Page. Tidak ada apapun di halaman ini
+Setelah berhasil login kita langsung diarahkan ke halaman Home Page. Tidak ada apapun di halaman ini.
 Ini adalah kode dari tampilan Home Page
 ```template
 <ion-page>
