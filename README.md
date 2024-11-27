@@ -119,7 +119,7 @@ const logout = () => {
 
 ![image](https://github.com/user-attachments/assets/9c7fe139-e1e4-4dc1-a419-59c1e9dfb510)
 
-Tampilan home berisi tentang daftar aktivitas yang akan kita lakukan. Kita bisa menambahkan aktivitas dengan cara menekan tombol + di kanan bawah
+Tampilan home berisi tentang daftar aktivitas yang akan kita lakukan. Kita bisa menambahkan aktivitas dengan cara menekan tombol + di kanan bawah.
 Kode tampilan ini berasal dari 
 ```
 <ion-content :fullscreen="true">
