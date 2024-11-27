@@ -30,9 +30,6 @@
                     <ion-input label="Email" :value="user?.email" :readonly="true"></ion-input>
                 </ion-item>
             </ion-list>
-
-            <!-- Tabs Menu -->
-            <TabsMenu />
         </ion-content>
 
     </ion-page>
@@ -42,7 +39,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonItem, IonList, IonLabel, IonIcon, IonButton, IonAvatar } from '@ionic/vue';
 import { exit } from 'ionicons/icons';
 import { computed, ref } from 'vue';
-import TabsMenu from '@/components/TabsMenu.vue';
 import { useAuthStore } from '@/stores/auth';
 
 const authStore = useAuthStore();
@@ -52,7 +48,7 @@ const logout = () => {
     authStore.logout();
 };
 
-const userPhoto = computed(() => authStore.user?.photoURL || 'https://ionicframework.com/docs/img/demos/avatar.svg');
+const userPhoto = computed(() => user.value?.photoURL || 'https://ionicframework.com/docs/img/demos/avatar.svg');
 
 function handleImageError() {
     userPhoto.value = 'https://ionicframework.com/docs/img/demos/avatar.svg';
