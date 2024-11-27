@@ -274,7 +274,7 @@ Tetapi jika kita memilih untuk completed maka akan muncul
 
 ![image](https://github.com/user-attachments/assets/3cc42a06-c7d1-42ff-9ae2-4ec8e3c3696d)
 
-Proses ini berasal dari koode 
+Proses ini berasal dari kode 
 ```
   const slidingItem = itemRefs.value.get(statusTodo.id!);
   await slidingItem?.close();
@@ -292,7 +292,10 @@ Proses ini berasal dari koode
   }
 };
 ```
-
+Datanya ditampilkan dari kode
+```
+const completedTodos = computed(() => todos.value.filter(todo => todo.status));
+```
 ## Tampilan Hapus Aktivitas
 
 ![image](https://github.com/user-attachments/assets/4e68e325-1dd3-4e1d-943a-d3e8adb02f6f)
