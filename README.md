@@ -120,6 +120,7 @@ const logout = () => {
 ![image](https://github.com/user-attachments/assets/9c7fe139-e1e4-4dc1-a419-59c1e9dfb510)
 
 Tampilan home berisi tentang daftar aktivitas yang akan kita lakukan. Kita bisa menambahkan aktivitas dengan cara menekan tombol + di kanan bawah.
+
 Kode tampilan ini berasal dari 
 ```
 <ion-content :fullscreen="true">
@@ -160,14 +161,46 @@ Kode tampilan ini berasal dari
 ![image](https://github.com/user-attachments/assets/026b0b32-4ea9-4574-9fcd-aa5871cdc0da)
 
 Tampilan ini didapatkan ketika anda menekan tombol + di kanan bawah. Ini berisikan judul dan deskripsi dari aktivitas yang akan kita lakukan.
-Button add todo akan meneruskan data yang diinputkan pengguna dalam modal ke fungsi handleSubmit Tampilan form add to do didapat dari kode berikut:
+
+Button add todo akan meneruskan data yang diinputkan pengguna dalam modal ke fungsi handleSubmit 
 ```
 <InputModal
   v-model:isOpen="isOpen"
   @submit="handleSubmit"
 />
 ```
-
+Tampilan form add to do didapat dari kode berikut:
+```
+<template>
+    <ion-modal :is-open="isOpen" @did-dismiss="cancel">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>{{ editingId ? '' : 'Add' }} Todo</ion-title>
+                <ion-buttons slot="start">
+                    <ion-button @click="cancel"><ion-icon :icon="close"></ion-icon></ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-item>
+                <ion-input v-model="localTodo.title" label="Title" label-placement="floating"
+                    placeholder="Enter Title"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-textarea v-model="localTodo.description" label="Description" label-placement="floating"
+                    placeholder="Enter Description" :autogrow="true" :rows="3"></ion-textarea>
+            </ion-item>
+            <ion-row>
+                <ion-col>
+                    <ion-button type="button" @click="input" shape="round" color="primary" expand="block">
+                        {{ editingId ? '' : 'Add' }} Todo
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-content>
+    </ion-modal>
+</template>
+```
 ## Tampilan Home Ketika Berhasil Menambahkan Aktivitas
 
 ![image](https://github.com/user-attachments/assets/2738fbff-4e7c-4498-ba86-f2aad60c5b99)
@@ -178,7 +211,8 @@ Data yang ditampilkan berasal dari kode
 const activeTodos = computed(() => todos.value.filter(todo => !todo.status));
 ```
 
-Ketika kita menggeser ke kiri ada 2 opsi yang bisa kita lakukan 
+Ketika kita menggeser ke kiri ada 2 opsi yang bisa kita lakukan.
+
 Membuat aktivitas tersebut menjadi completed atau mengedit aktivitas tersebut
 
 ![image](https://github.com/user-attachments/assets/ecd9e439-9936-43fe-b0d5-b156958dc1da)
@@ -207,7 +241,7 @@ Kode Tampilan
 <ion-modal :is-open="isOpen" @did-dismiss="cancel">
   <ion-header>
     <ion-toolbar>
-      <ion-title>{{ editingId ? "Edit" : "Add" }} Todo</ion-title>
+      <ion-title>{{ editingId ? "Edit" : "" }} Todo</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -227,7 +261,7 @@ Kode Tampilan
         placeholder="Enter Description"
       ></ion-textarea>
     </ion-item>
-    <ion-button @click="input">{{ editingId ? "Edit" : "Add" }} Todo</ion-button>
+    <ion-button @click="input">{{ editingId ? "Edit" : "" }} Todo</ion-button>
   </ion-content>
 </ion-modal>
 ```
@@ -290,7 +324,8 @@ Aktivitas yang telah berhasil di hapus akan hilang dari halaman home
 
 ![image](https://github.com/user-attachments/assets/d5383529-6e7f-4c17-8c2e-26198ddd76eb)
 
-Kita juga bisa membuat aktivitas yang sudah completed menjadi aktif(uncomplete) lagi dengan cara menggeser ke kiri pada aktivitas yang dimau
+Kita juga bisa membuat aktivitas yang sudah completed menjadi aktif(uncomplete) lagi dengan cara menggeser ke kiri pada aktivitas yang dimau.
+
 Proses ini didapatkan dari kode 
 ```
 const handleStatus = async (statusTodo: Todo) => {
