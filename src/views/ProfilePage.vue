@@ -48,7 +48,7 @@ const logout = () => {
     authStore.logout();
 };
 
-const userPhoto = computed(() => user.value?.photoURL || 'https://ionicframework.com/docs/img/demos/avatar.svg');
+const userPhoto = computed(() => authStore.user?.photoURL || 'https://ionicframework.com/docs/img/demos/avatar.svg');
 
 function handleImageError() {
     userPhoto.value = 'https://ionicframework.com/docs/img/demos/avatar.svg';
